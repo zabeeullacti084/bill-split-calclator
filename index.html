@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bill Split Calculator</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			color: #77ccee;
+		}
+		
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+			background-color: #6e6c6c;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			width: 300px;
+			margin: 0 auto; /* Add this line to center the container */
+		}
+		
+		label {
+			font-size: 16px;
+			margin-bottom: 5px;
+			color: #ee8b8b;
+		}
+		
+		input[type="number"] {
+			margin: 5px;
+			padding: 10px;
+			width: 100%;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 1px 1px 5px grey;
+			font-size: 16px;
+			background-color: #fdfafd;
+			color: #333333;
+			text-align: right;
+		}
+		
+		input[type="button"] {
+			margin-top: 10px;
+			padding: 10px;
+			width: 100%;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 1px 1px 5px grey;
+			font-size: 16px;
+			cursor: pointer;
+			background-color: #333333;
+			color: #ffb1b1;
+		}
+		
+		input[type="button"]:hover {
+			background-color: #FFFFFF;
+			color: #333333;
+		}
+		
+		#output {
+			margin-top: 20px;
+			font-size: 16px;
+			color: #333333;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Bill Split Calculator</h1>
+		
+		<label>Bill Total:</label>
+		<input type="number" id="billTotal">
+		
+		<label>Number of People:</label>
+		<input type="number" id="numPeople">
+		
+		<input type="button" value="Calculate" onclick="calculateSplit()">
+		
+		<div id="output"></div>
+	</div>
+
+	<script>
+		function calculateSplit() {
+			// Get the values from the input fields
+			var billTotal = document.getElementById("billTotal").value;
+			var numPeople = document.getElementById("numPeople").value;
+
+			// Calculate the split amount
+			var splitAmount = billTotal / numPeople;
+
+			// Format the split amount to two decimal places
+			splitAmount = splitAmount.toFixed(2);
+
+			// Display the split amount
+			document.getElementById("output").innerHTML = "Each person should pay ₹ " + splitAmount;
+		}
+	</script>
+</body>
+</html>
